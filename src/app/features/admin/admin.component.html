@@ -1,0 +1,90 @@
+<div class="main">
+
+  <!-- LEFT COLUMN -->
+  <div class="left">
+
+    <!-- Simple Stat -->
+    <div class="stats-box">
+      Total PDFs: <strong>{{ totalPdfs }}</strong>
+      <button (click)="logout()">Logout</button>
+    </div>
+
+    <!-- Upload Section -->
+    <div class="upload-section">
+      <h3>Upload Journal</h3>
+
+      <form [formGroup]="journalForm" (ngSubmit)="submit()">
+
+        <input
+          type="text"
+          placeholder="Journal Title"
+          formControlName="title"
+        />
+
+        <textarea
+          rows="3"
+          placeholder="Short description"
+          formControlName="description">
+        </textarea>
+
+        <input
+          type="file"
+          accept="application/pdf"
+          (change)="onFileSelected($event)"
+        />
+
+        <button type="submit" [disabled]="uploading">
+          Upload
+        </button>
+
+        <div *ngIf="uploadProgress > 0" class="progress">
+          Uploading: {{ uploadProgress }}%
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="right">
+    <h3>Journals</h3>
+
+    <table class="journal-table">
+      <thead>
+        <tr style="padding-left: 5%;">
+          <th>Title</th>
+          <th>Description</th>
+          <th>Published At</th>
+          <th>Hide</th>
+          <th>View</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let journal of journals">
+          <td>{{ journal.title }}</td>
+          <td>{{ journal.description }}</td>
+          <td>{{ formatDate(journal.publishedAt) }}</td>
+          <td>{{ journal.hide ? 'Hidden' : 'Visible' }}</td>
+          <td>
+            <button (click)="viewPdf(journal.pdfUrl)" style="background-color: rgb(52, 130, 255);">View</button>
+          </td>
+          <td>
+    <button (click)="toggleHide(journal)" >
+    {{ journal.hide ? 'Unhide' : 'Hide' }}
+  </button>
+  <button (click)="deleteJournal(journal._id)" style="background-color: rgb(255, 0, 0); margin-left: 2%;">
+    Delete</button>
+</td>
+
+        </tr>
+      </tbody>
+    </table>
+
+    <p *ngIf="loading">Loading journals...</p>
+    <p *ngIf="!loading && journals.length === 0">No journals found.</p>
+  </div>
+
+
+</div>

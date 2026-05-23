@@ -1,0 +1,17 @@
+<div class="reset-container">
+  <h2>Reset Password</h2>
+
+  <input
+    type="password"
+    placeholder="New Password"
+    [(ngModel)]="password"
+    name="password"
+    required
+  />
+
+  <button (click)="reset()">
+    Reset
+  </button>
+
+  <p *ngIf="message">{{ message }}</p>
+</div>

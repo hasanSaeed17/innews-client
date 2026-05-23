@@ -1,0 +1,457 @@
+/* =========================
+   PAGE BASE
+========================= */
+
+.page {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 32px 20px 60px;
+  font-family: "Georgia", "Times New Roman", serif;
+  background-color: #f6f6f4;
+  color: #222;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.page-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.page-header h1 {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #555;
+}
+/* =========================
+   SEARCH BAR
+========================= */
+
+.search-bar {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.search-bar input {
+  width: 100%;
+  max-width: 420px;
+  padding: 10px 14px;
+  font-size: 15px;
+  font-family: inherit;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  outline: none;
+}
+
+.search-bar input:focus {
+  border-color: #1a5fa0;
+}
+
+/* =========================
+   NO RESULTS
+========================= */
+
+.no-results {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 16px;
+  color: #666;
+}
+
+
+/* =========================
+   GRID (2 PER ROW)
+========================= */
+
+.journal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.journal-card {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 22px;
+  background-color: #ffffff;
+  border: 1px solid #e1e1e1;
+  padding: 14px;
+}
+/* CARD BASE */
+.journal-card {
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* STRONGER ELEVATION */
+.journal-card:hover {
+  box-shadow:
+    0 10px 22px rgba(0, 0, 0, 0.10),
+    0 4px 6px rgba(0, 0, 0, 0.06);
+  border-color: #cfcfcf;
+}
+
+/* TITLE ACCENT */
+.title {
+  transition: color 0.3s ease;
+}
+
+.journal-card:hover .title {
+  color: #1a5fa0;
+}
+
+
+/* =========================
+   COVER
+========================= */
+
+.cover {
+  width: 180px;
+  height: 260px;
+  background-color: #ddd;
+  overflow: hidden;
+  border: 1px solid #ccc;
+}
+
+.cover iframe {
+  width: 100%;
+  height: 380px;
+  border: none;
+  transform: translateY(-55px);
+  pointer-events: none;
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.description {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 18px;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* =========================
+   ACTIONS
+========================= */
+
+.meta-actions {
+  margin-top: auto;
+  display: flex;
+  gap: 14px;
+}
+
+.meta-actions .primary {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #1a5fa0;
+  padding: 7px 14px;
+  text-decoration: none;
+  border-radius: 2px;
+}
+
+.meta-actions .primary:hover {
+  background-color: #134b80;
+}
+
+.meta-actions .secondary {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a5fa0;
+  text-decoration: none;
+  padding: 7px 4px;
+}
+
+.meta-actions .secondary:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   SKELETON LOADER
+========================= */
+
+.skeleton {
+  pointer-events: none;
+}
+
+.skeleton-box,
+.skeleton-line,
+.skeleton-button,
+.skeleton-link {
+  background: linear-gradient(
+    100deg,
+    #e4e4e4 40%,
+    #f1f1f1 50%,
+    #e4e4e4 60%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.2s infinite;
+}
+
+.skeleton .cover {
+  background-color: #ddd;
+}
+
+.skeleton-line {
+  height: 14px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+.skeleton-line.title {
+  height: 20px;
+  width: 70%;
+}
+
+.skeleton-line.meta {
+  height: 12px;
+  width: 40%;
+  margin-bottom: 16px;
+}
+
+.skeleton-line.text {
+  width: 100%;
+}
+
+.skeleton-line.text.short {
+  width: 60%;
+}
+
+.skeleton-actions {
+  margin-top: auto;
+  display: flex;
+  gap: 14px;
+}
+
+.skeleton-button {
+  width: 120px;
+  height: 34px;
+  border-radius: 2px;
+}
+
+.skeleton-link {
+  width: 90px;
+  height: 14px;
+  align-self: center;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+  .journal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .journal-card {
+    grid-template-columns: 1fr;
+  }
+
+  .cover {
+    width: 100%;
+    height: 240px;
+  }
+
+  .cover iframe {
+    height: 360px;
+  }
+}
+
+
+/* =====================================================
+   Large desktops (1440px and up)
+===================================================== */
+@media (min-width: 1440px) {
+  .page {
+    max-width: 1400px;
+  }
+
+  .page-header h1 {
+    font-size: 36px;
+  }
+
+  .title {
+    font-size: 21px;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+}
+
+/* =====================================================
+   Laptops / standard desktops (1280px and down)
+===================================================== */
+@media (max-width: 1280px) {
+  .journal-card {
+    gap: 20px;
+  }
+
+  .cover {
+    width: 170px;
+    height: 245px;
+  }
+
+  .cover iframe {
+    height: 360px;
+    transform: translateY(-50px);
+  }
+}
+
+/* =====================================================
+   Tablets landscape (1024px and down)
+===================================================== */
+@media (max-width: 1024px) {
+  .page {
+    padding: 28px 18px 52px;
+  }
+
+  .page-header {
+    margin-bottom: 40px;
+  }
+
+  .page-header h1 {
+    font-size: 30px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+  }
+
+  .search-bar input {
+    max-width: 360px;
+  }
+}
+
+/* =====================================================
+   Tablets portrait (900px and down)
+===================================================== */
+@media (max-width: 900px) {
+  .journal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .journal-card {
+    grid-template-columns: 1fr;
+  }
+
+  .cover {
+    width: 100%;
+    height: 230px;
+  }
+
+  .cover iframe {
+    height: 340px;
+    transform: translateY(-45px);
+  }
+}
+
+/* =====================================================
+   Large phones (640px and down)
+===================================================== */
+@media (max-width: 640px) {
+  .page {
+    padding: 24px 14px 44px;
+  }
+
+  .page-header h1 {
+    font-size: 26px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .meta-actions {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .meta-actions .primary,
+  .meta-actions .secondary {
+    font-size: 13px;
+  }
+}
+
+/* =====================================================
+   Small phones (480px and down)
+===================================================== */
+@media (max-width: 480px) {
+  .page {
+    padding: 20px 12px 36px;
+  }
+
+  .search-bar input {
+    font-size: 14px;
+    padding: 9px 12px;
+  }
+
+  .cover {
+    height: 200px;
+  }
+
+  .cover iframe {
+    height: 300px;
+    transform: translateY(-40px);
+  }
+
+  .title {
+    font-size: 17px;
+  }
+
+  .description {
+    line-height: 1.5;
+  }
+
+  .meta-actions .primary {
+    padding: 6px 12px;
+  }
+}
+

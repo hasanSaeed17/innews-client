@@ -1,0 +1,36 @@
+<!-- Desktop Logo -->
+<div class="logo-container desktop-logo">
+  <img src="images/logo.png" alt="News Logo">
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="navbar-inner">
+
+    <!-- Mobile Logo ONLY -->
+    <div class="mobile-logo">
+      <img src="images/logo.png" alt="News Logo">
+    </div>
+
+    <!-- Hamburger -->
+    <div class="hamburger" (click)="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- Links -->
+    <div class="links" [class.open]="isMenuOpen">
+      <a routerLink="/news/home" routerLinkActive="active" (click)="closeMenu()">HOME</a>
+      <a routerLink="/news/latest" routerLinkActive="active" (click)="closeMenu()">LATEST</a>
+      <a routerLink="/news/business" routerLinkActive="active" (click)="closeMenu()">BUSINESS</a>
+      <a routerLink="/news/world" routerLinkActive="active" (click)="closeMenu()">WORLD</a>
+      <a routerLink="/news/politics" routerLinkActive="active" (click)="closeMenu()">POLITICS</a>
+      <a routerLink="/news/sports" routerLinkActive="active" (click)="closeMenu()">SPORTS</a>
+      <a routerLink="/news/health" routerLinkActive="active" (click)="closeMenu()">HEALTH</a>
+      <a routerLink="/news/technology" routerLinkActive="active" (click)="closeMenu()">TECHNOLOGY</a>
+      <a routerLink="/journals" routerLinkActive="active" class="journals-link" (click)="closeMenu()">MAGAZINES</a>
+    </div>
+
+  </div>
+</nav>

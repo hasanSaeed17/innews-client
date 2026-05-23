@@ -1,0 +1,208 @@
+/* Base Footer */
+.news-footer {
+  background-color: #ebebeb; /* dark charcoal */
+  color: #2c2c2c;           /* soft gray text */
+  font-family: 'Georgia', serif;
+  padding: 60px 20px 0px 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Footer Container */
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+  gap: 40px;
+  padding: 0 20px;
+}
+
+/* Logo Section */
+.footer-logo-section {
+  flex: 0 0 200px; /* fixed space for logo */
+}
+
+.footer-logo {
+  height: 50px;
+  display: block;
+}
+
+/* Right Sections */
+.footer-right-sections {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: flex-end;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+/* Footer Sections */
+.footer-section {
+  flex: 1 1 200px;
+}
+
+.footer-section h4 {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: #2c2c2c;           /* light gray headings */
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #444; /* subtle divider */
+  padding-bottom: 5px;
+}
+
+.footer-section p,
+.footer-section li {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #2c2c2c;
+}
+
+.footer-section.links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section.links ul li {
+  margin-bottom: 8px;
+}
+
+.footer-section.links ul li a {
+  text-decoration: none;
+  color: #2c2c2c;
+  transition: color 0.3s;
+}
+
+.footer-section.links ul li a:hover {
+  color: #2c2c2c; /* brighter gray on hover */
+  text-decoration: underline;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  padding: 15px 0;
+  border-top: 1px solid #444;
+  margin-top: 40px;
+  font-size: 13px;
+  color: #2c2c2c;
+}
+
+
+/* =====================================================
+   Large desktops (1440px and up)
+===================================================== */
+@media (min-width: 1440px) {
+  .footer-container {
+    max-width: 1320px;
+  }
+
+  .footer-section h4 {
+    font-size: 19px;
+  }
+}
+
+/* =====================================================
+   Laptops / desktops (1280px and down)
+===================================================== */
+@media (max-width: 1280px) {
+  .footer-right-sections {
+    gap: 48px;
+  }
+}
+
+/* =====================================================
+   Tablets landscape (1024px and down)
+===================================================== */
+@media (max-width: 1024px) {
+  .footer-container {
+    gap: 32px;
+  }
+
+  .footer-logo-section {
+    flex: 0 0 180px;
+  }
+
+  .footer-section h4 {
+    font-size: 17px;
+  }
+}
+
+/* =====================================================
+   Tablets portrait (900px and down)
+===================================================== */
+@media (max-width: 900px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-logo-section {
+    flex: none;
+  }
+
+  .footer-right-sections {
+    justify-content: center;
+    gap: 32px;
+  }
+
+  .footer-section {
+    flex: 1 1 100%;
+  }
+
+  .footer-section h4 {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}
+
+/* =====================================================
+   Large phones (640px and down)
+===================================================== */
+@media (max-width: 640px) {
+  .news-footer {
+    padding: 48px 16px 0;
+  }
+
+  .footer-container {
+    gap: 28px;
+  }
+
+  .footer-section h4 {
+    font-size: 16px;
+  }
+
+  .footer-section p,
+  .footer-section li {
+    font-size: 13.5px;
+  }
+}
+
+/* =====================================================
+   Small phones (480px and down)
+===================================================== */
+@media (max-width: 480px) {
+  .news-footer {
+    padding: 40px 14px 0;
+  }
+
+  .footer-logo {
+    height: 44px;
+    margin: 0 auto;
+  }
+
+  .footer-section h4 {
+    font-size: 15px;
+    letter-spacing: 0.8px;
+  }
+
+  .footer-bottom {
+    font-size: 12px;
+    padding: 12px 0;
+  }
+}

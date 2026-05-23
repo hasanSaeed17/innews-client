@@ -1,0 +1,376 @@
+/* ===============================
+   Global Layout
+   =============================== */
+
+.main {
+  display: flex;
+  gap: 26px;
+  padding: 28px 36px;
+  min-height: 100vh;
+  background-color: #f9f9f9;
+  font-family: "Georgia", "Times New Roman", serif;
+  box-sizing: border-box;
+  color: #222;
+}
+
+/* ===============================
+   Columns
+   =============================== */
+
+.left {
+  width: 35%;
+  padding-right: 28px;
+  border-right: 1px solid #d5d5d5;
+}
+
+.right {
+  width: 65%;
+}
+
+/* ===============================
+   Section Titles
+   =============================== */
+
+.right h3,
+.upload-section h3 {
+  font-size: 18px;
+  font-weight: normal;
+  margin-bottom: 14px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #ddd;
+  color: #222;
+}
+
+/* ===============================
+   Stats Box
+   =============================== */
+
+.stats-box {
+  font-size: 15px;
+  margin-bottom: 48px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #ccc;
+}
+
+.stats-box strong {
+  font-weight: bold;
+}
+
+.stats-box button {
+  margin-left: 14px;
+  font-size: 13px;
+  padding: 6px 12px;
+  border: none;
+  background-color: #222;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.stats-box button:hover {
+  background-color: #000;
+}
+
+/* ===============================
+   Upload Section
+   =============================== */
+
+.upload-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ===============================
+   Form Inputs
+   =============================== */
+
+.upload-section input,
+.upload-section textarea {
+  font-family: inherit;
+  font-size: 14px;
+  padding: 9px 11px;
+  border: 1px solid #aaa;
+  background-color: #fff;
+  color: #222;
+}
+
+.upload-section input:focus,
+.upload-section textarea:focus {
+  outline: none;
+  border-color: #555;
+}
+
+.upload-section textarea {
+  resize: none;
+}
+
+/* Placeholder */
+.upload-section input::placeholder,
+.upload-section textarea::placeholder {
+  color: #777;
+  font-style: italic;
+}
+
+/* ===============================
+   Buttons
+   =============================== */
+
+.upload-section button,
+.journal-table button {
+  font-family: inherit;
+  font-size: 13px;
+  padding: 6px 14px;
+  border: none;
+  background-color: #222;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.upload-section button:hover:not(:disabled),
+.journal-table button:hover {
+  background-color: #000;
+  transform: translateY(-1px);
+}
+
+.upload-section button:disabled {
+  background-color: #888;
+  cursor: not-allowed;
+}
+
+/* ===============================
+   Table Styling
+   =============================== */
+
+.journal-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+
+.journal-table th,
+.journal-table td {
+  padding: 9px 11px;
+  text-align: left;
+  border-bottom: 1px solid #d0d0d0;
+  vertical-align: middle;
+}
+
+.journal-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+/* ===============================
+   Delete Button
+   =============================== */
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: #b00000;
+  padding: 4px;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.1s ease;
+}
+
+.delete-btn:hover {
+  color: #800000;
+  transform: translateY(-1px);
+}
+
+/* ===============================
+   Progress / Status Text
+   =============================== */
+
+.progress,
+.right p {
+  font-size: 13.5px;
+  color: #555;
+  margin-top: 8px;
+}
+
+/* ===============================
+   Logout Button
+   =============================== */
+
+.stats-box button {
+  margin-left: 230px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-family: inherit;
+  background-color: #222;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.stats-box button:hover {
+  background-color: #000;
+  transform: translateY(-1px);
+}
+
+
+/* ===============================
+   Base Reset
+   =============================== */
+
+body {
+  margin: 0;
+}
+
+
+/* =====================================================
+   Large desktops (1440px and up)
+===================================================== */
+@media (min-width: 1440px) {
+  .main {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .left {
+    width: 32%;
+  }
+
+  .right {
+    width: 68%;
+  }
+
+  .journal-table {
+    font-size: 14px;
+  }
+}
+
+/* =====================================================
+   Laptops / desktops (1280px and down)
+===================================================== */
+@media (max-width: 1280px) {
+  .main {
+    padding: 24px 28px;
+  }
+
+  .left {
+    width: 36%;
+    padding-right: 22px;
+  }
+
+  .right {
+    width: 64%;
+  }
+
+  .stats-box button {
+    margin-left: 140px;
+  }
+}
+
+/* =====================================================
+   Tablets landscape (1024px and down)
+===================================================== */
+@media (max-width: 1024px) {
+  .main {
+    gap: 22px;
+  }
+
+  .left {
+    width: 40%;
+  }
+
+  .right {
+    width: 60%;
+  }
+
+  .stats-box {
+    font-size: 14px;
+  }
+
+  .journal-table th,
+  .journal-table td {
+    padding: 8px 10px;
+  }
+}
+
+/* =====================================================
+   Tablets portrait (900px and down)
+===================================================== */
+@media (max-width: 900px) {
+  .main {
+    flex-direction: column;
+    padding: 22px 20px;
+  }
+
+  .left,
+  .right {
+    width: 100%;
+    padding-right: 0;
+    border-right: none;
+  }
+
+  .stats-box button {
+    margin-left: 0;
+    margin-top: 12px;
+  }
+}
+
+/* =====================================================
+   Large phones (640px and down)
+===================================================== */
+@media (max-width: 640px) {
+  .main {
+    padding: 18px 16px;
+  }
+
+  .right h3,
+  .upload-section h3 {
+    font-size: 16px;
+  }
+
+  .stats-box {
+    margin-bottom: 32px;
+  }
+
+  .upload-section input,
+  .upload-section textarea {
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+
+  .journal-table {
+    font-size: 12.5px;
+  }
+
+  .journal-table th {
+    font-size: 12px;
+  }
+}
+
+/* =====================================================
+   Small phones (480px and down)
+===================================================== */
+@media (max-width: 480px) {
+  .main {
+    padding: 16px 14px;
+  }
+
+  .stats-box {
+    font-size: 13px;
+  }
+
+  .upload-section button,
+  .journal-table button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .journal-table th,
+  .journal-table td {
+    padding: 7px 8px;
+  }
+
+  .delete-btn {
+    padding: 6px;
+  }
+}

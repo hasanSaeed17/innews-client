@@ -1,0 +1,237 @@
+<section class="news-page">
+
+  <!-- Status messages -->
+  <div class="news-status">
+    <div *ngIf="loading" class="status loading">
+      Loading latest news…
+    </div>
+
+    <!-- <div *ngIf="error" class="status error">
+      {{ error }}
+    </div>
+
+    <div *ngIf="!loading && !error && newsList.length === 0" class="status empty">
+      No news available for this category.
+    </div> -->
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- ===============================
+     NEWS DATA ARTICLES
+================================= -->
+<section class="news-stream">
+
+  <!-- Featured (Top 4) -->
+  <div class="featured-grid">
+    <article
+      class="featured-card"
+      *ngFor="let item of newsArticles | slice:0:4">
+
+      <div class="image-wrap" *ngIf="item.image">
+        <a [href]="item.link" target="_blank" rel="noopener noreferrer">
+          <img [src]="item.image" [alt]="item.title" />
+        </a>
+      </div>
+
+      <h2 class="featured-title">
+        <a [href]="item.link" target="_blank" rel="noopener noreferrer">
+          {{ item.title }}
+        </a>
+      </h2>
+
+      <div class="news-meta">
+        <span *ngIf="item.pubDate">
+          {{ item.pubDate | date:'medium' }}
+        </span>
+        <span *ngIf="item.source"> • {{ item.source }}</span>
+      </div>
+    </article>
+  </div>
+
+  <!-- Regular -->
+  <div class="news-grid">
+    <article
+      class="news-row"
+      *ngFor="let item of newsArticles | slice:4">
+
+      <div class="thumb" *ngIf="item.image">
+        <a [href]="item.link" target="_blank" rel="noopener noreferrer">
+          <img [src]="item.image" [alt]="item.title" />
+        </a>
+      </div>
+
+      <div class="content">
+        <h3 class="news-title">
+          <a [href]="item.link" target="_blank" rel="noopener noreferrer">
+            {{ item.title }}
+          </a>
+        </h3>
+
+        <div class="news-meta">
+          <span *ngIf="item.pubDate">
+            {{ item.pubDate | date:'medium' }}
+          </span>
+          <span *ngIf="item.source"> • {{ item.source }}</span>
+        </div>
+
+        <p class="news-desc">
+          {{ item.description | slice:0:200 }}
+        </p>
+      </div>
+    </article>
+  </div>
+
+</section>
+
+
+<!-- ===============================
+     GNEWS ARTICLES
+================================= -->
+<section class="news-stream">
+
+  <!-- Featured (Top 4) -->
+  <div class="featured-grid">
+    <article
+      class="featured-card"
+      *ngFor="let item of gNewsArticles | slice:0:4">
+
+      <div class="image-wrap" *ngIf="item.image">
+        <a [href]="item.link" target="_blank" rel="noopener noreferrer">
+          <img [src]="item.image" [alt]="item.title" />
+        </a>
+      </div>
+
+      <h2 class="featured-title">
+        <a [href]="item.link" target="_blank" rel="noopener noreferrer">
+          {{ item.title }}
+        </a>
+      </h2>
+
+      <div class="news-meta">
+        <span *ngIf="item.pubDate">
+          {{ item.pubDate | date:'medium' }}
+        </span>
+        <span *ngIf="item.source"> • {{ item.source }}</span>
+      </div>
+    </article>
+  </div>
+
+  <!-- Regular -->
+  <div class="news-grid">
+    <article
+      class="news-row"
+      *ngFor="let item of gNewsArticles | slice:4">
+
+      <div class="thumb" *ngIf="item.image">
+        <a [href]="item.link" target="_blank" rel="noopener noreferrer">
+          <img [src]="item.image" [alt]="item.title" />
+        </a>
+      </div>
+
+      <div class="content">
+        <h3 class="news-title">
+          <a [href]="item.link" target="_blank" rel="noopener noreferrer">
+            {{ item.title }}
+          </a>
+        </h3>
+
+        <div class="news-meta">
+          <span *ngIf="item.pubDate">
+            {{ item.pubDate | date:'medium' }}
+          </span>
+          <span *ngIf="item.source"> • {{ item.source }}</span>
+        </div>
+
+        <p class="news-desc">
+          {{ item.description | slice:0:200 }}
+        </p>
+      </div>
+    </article>
+  </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- News list -->
+  <div class="news-list" *ngIf="!loading && !error">
+  <article
+  class="news-card"
+  [class.featured]="i<4"
+  *ngFor="let item of feeds; let i = index">
+
+
+      <h2 class="card-title">
+        <a
+          [href]="item.link"
+          target="_blank"
+          rel="noopener noreferrer">
+          {{ item.title }}
+        </a>
+      </h2>
+
+      <div class="card-meta">
+        <span *ngIf="item.pubDate">
+          {{ item.pubDate | date:'medium' }}
+        </span>
+        <span *ngIf="item.source">
+          • {{ item.source }}
+        </span>
+      </div>
+
+      <p
+        class="card-description"
+        [innerHTML]="item.description | slice:0:280">
+      </p>
+
+      <a
+        class="read-more"
+        [href]="item.link"
+        target="_blank"
+        rel="noopener noreferrer">
+        Read full story →
+      </a>
+
+    </article>
+
+  </div>
+
+</section>

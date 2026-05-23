@@ -1,0 +1,29 @@
+<div class="login-container">
+  <h2>Admin Login</h2>
+
+  <form (ngSubmit)="login()" #loginForm="ngForm">
+    <input
+      type="email"
+      name="email"
+      placeholder="Email"
+      required
+      [(ngModel)]="email"
+    />
+
+    <input
+      type="password"
+      name="password"
+      placeholder="Password"
+      required
+      [(ngModel)]="password"
+    />
+
+    <button type="submit" [disabled]="loginForm.invalid">
+      Login
+    </button>
+  </form>
+
+  <a routerLink="/forgot-password">Forgot Password?</a>
+
+  <p class="error" *ngIf="error">{{ error }}</p>
+</div>

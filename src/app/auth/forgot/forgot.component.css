@@ -1,0 +1,66 @@
+/* Forgot password container */
+.forgot-container {
+  width: 100%;
+  max-width: 380px;
+  margin: 80px auto;
+  padding: 32px;
+  background-color: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Heading */
+.forgot-container h2 {
+  margin-bottom: 24px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+/* Input field */
+.forgot-container input {
+  width: 85%;           /* reduced width for cleaner look */
+  max-width: 300px;
+  padding: 12px 14px;
+  margin: 0 auto 16px;
+  display: block;
+  font-size: 14px;
+  border: 1px solid #dcdfe3;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.forgot-container input:focus {
+  border-color: #2c3e50;
+}
+
+/* Button */
+.forgot-container button {
+  width: 85%;          /* matches input width */
+  max-width: 300px;
+  padding: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: #2c3e50;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: block;
+  margin: 0 auto 16px;
+}
+
+.forgot-container button:hover {
+  background-color: #1f2a36;
+}
+
+/* Message text */
+.forgot-container .message {
+  font-size: 13px;
+  color: #27ae60;  /* green for success messages */
+  margin-top: 16px;
+}

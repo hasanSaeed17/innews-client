@@ -1,0 +1,89 @@
+<div class="page">
+  <!-- HEADER -->
+  <header class="page-header">
+    <h1>Magazines & Journals</h1>
+    <p class="subtitle">
+      Curated publications, editorials, and featured journals
+    </p>
+
+    <!-- SEARCH -->
+    <div class="search-bar">
+      <input
+        type="text"
+        placeholder="Search journals by title or description…"
+        [(ngModel)]="searchTerm"
+        (input)="filterJournals()"
+      />
+    </div>
+  </header>
+
+  <!-- SKELETON LOADER -->
+  <section class="journal-grid" *ngIf="loading">
+    <article class="journal-card skeleton" *ngFor="let i of [1,2,3,4]">
+
+      <div class="cover skeleton-box"></div>
+
+      <div class="content">
+        <div class="skeleton-line title"></div>
+        <div class="skeleton-line meta"></div>
+
+        <div class="skeleton-line text"></div>
+        <div class="skeleton-line text"></div>
+        <div class="skeleton-line text short"></div>
+
+        <div class="skeleton-actions">
+          <div class="skeleton-button"></div>
+          <div class="skeleton-link"></div>
+        </div>
+      </div>
+
+    </article>
+  </section>
+
+  <!-- REAL CONTENT -->
+  <section class="journal-grid" *ngIf="!loading && filteredJournals.length">
+    <article class="journal-card" *ngFor="let journal of filteredJournals">
+
+      <div class="cover">
+        <iframe
+          [src]="journal.safePdfUrl"
+          title="Journal preview"
+          loading="lazy"
+        ></iframe>
+      </div>
+
+      <div class="content">
+        <h2 class="title">{{ journal.title }}</h2>
+
+        <p class="description">
+          {{ journal.description }}
+        </p>
+
+        <div class="meta-actions">
+          <a
+            class="primary"
+            [href]="journal.pdfUrl"
+            target="_blank"
+            rel="noopener"
+          >
+            Read Journal
+          </a>
+
+          <a
+            class="secondary"
+            [href]="journal.pdfUrl"
+            download
+          >
+            Download PDF
+          </a>
+        </div>
+      </div>
+
+    </article>
+  </section>
+
+  <!-- NO RESULTS -->
+  <div class="no-results" *ngIf="!loading && !filteredJournals.length">
+    No journals match your search.
+  </div>
+</div>
