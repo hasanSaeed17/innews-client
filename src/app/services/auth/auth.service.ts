@@ -1,18 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private API = 'http://localhost:3500';
+  
+  private BASE_URL = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 
   login(data: any) {
     return this.http.post(
-      `${this.API}/auth/login`,
+      `${this.BASE_URL}/auth/login`,
       data,
       { withCredentials: true }
     );
@@ -20,7 +22,7 @@ export class AuthService {
 
   logout() {
     return this.http.post(
-      `${this.API}/auth/logout`,
+      `${this.BASE_URL}/auth/logout`,
       {},
       { withCredentials: true }
     );
@@ -28,21 +30,21 @@ export class AuthService {
 
   checkAuth() {
     return this.http.get(
-      `${this.API}/admin`, //----------------------------------!!
+      `${this.BASE_URL}/admin`,
       { withCredentials: true }
     );
   }
 
   forgotPassword(email: string) {
     return this.http.post(
-      `${this.API}/auth/forgot-password`,
+      `${this.BASE_URL}/auth/forgot-password`,
       { email: email }
     );
   }
 
   resetPassword(token: string, password: string) {
     return this.http.post(
-      `${this.API}/auth/reset-password/${token}`,
+      `${this.BASE_URL}/auth/reset-password/${token}`,
       { password }
     );
   }  

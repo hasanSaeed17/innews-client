@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NewsService {
 
-  private localHostApi = 'http://localhost:3500/news';
-  private BASE_URL = 'http://localhost:3500/news';
+  private BASE_URL = environment.apiUrl+'/news';
 
   constructor(private http:HttpClient) { }
 
@@ -19,7 +19,7 @@ export class NewsService {
 
 
   getHomeNews(): Observable<any[]> {
-    let url = this.localHostApi+'/home';
+    let url = this.BASE_URL+'/home';
     return this.http.get<any[]>(url);
   }
 
