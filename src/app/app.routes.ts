@@ -5,6 +5,8 @@ import { AdminComponent } from './features/admin/admin.component';
 import { LoginComponent } from './auth/login/login.component';
 import { ForgotComponent } from './auth/forgot/forgot.component';
 import { ResetComponent } from './auth/reset/reset.component';
+import {SignupComponent} from './auth/signup/signup.component';
+import {RecoverySignupComponent} from './auth/recovery-signup/recovery-signup.component';
 import { AuthGuardService } from './services/auth/auth-guard.service';
 
 
@@ -27,6 +29,8 @@ export const routes: Routes = [
 
   //login
   { path: 'login', component: LoginComponent },
+  {path: 'recovery-signup-developer', component: RecoverySignupComponent},
+  {path: 'signup', component: SignupComponent},
   { path: 'forgot-password', component: ForgotComponent },
   { path: 'reset-password/:token', component: ResetComponent },
 
@@ -34,6 +38,12 @@ export const routes: Routes = [
   {
     path: 'admin',
     component: AdminComponent,
+    canActivate: [AuthGuardService]
+  },
+  
+  { 
+    path: 'signup', 
+    component: SignupComponent, 
     canActivate: [AuthGuardService]
   },
 

@@ -1,0 +1,30 @@
+<div class="login-container">
+  <h2>Recovery Signup</h2>
+
+  <form (ngSubmit)="signup()" #loginForm="ngForm">
+    
+    <input
+      type="email"
+      name="email"
+      placeholder="User Email"
+      required
+      [(ngModel)]="userEmail"
+    />    
+
+    <input
+      type="password"
+      name="password"
+      placeholder="UserPassword"
+      required
+      [(ngModel)]="userPassword"
+    />
+
+    <button type="submit" [disabled]="loginForm.invalid">
+      Register
+    </button>
+  </form>
+
+  <a routerLink="/login">Already registered? <span style="text-decoration: underline; color: blue;">Login</span></a>
+
+  <p class="error" *ngIf="error">{{ error }}</p>
+</div>

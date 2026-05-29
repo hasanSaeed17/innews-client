@@ -7,10 +7,11 @@ import { CommonModule } from '@angular/common';
 import { Journal } from '../../models/journalModel';
 import { AuthService } from '../../services/auth/auth.service';
 import { Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
-  imports: [CommonModule,ReactiveFormsModule],
+  imports: [CommonModule,ReactiveFormsModule,RouterModule],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css'
 })
